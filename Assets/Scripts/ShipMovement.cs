@@ -25,9 +25,9 @@ public class ShipMovement : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.left, turnSpeed * horizontalInput * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Instantiate(Bullet, transform.position, Bullet.transform.rotation);
+            Instantiate(Bullet, transform.position, transform.rotation);
         }
 
     }
