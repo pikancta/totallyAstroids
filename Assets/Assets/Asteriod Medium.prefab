@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1034625681086949112}
   m_Layer: 0
   m_Name: Asteriod Medium
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 3
   gm: {fileID: 0}
+  rb: {fileID: 0}
   smallerAstroid: {fileID: 6655367730533386273, guid: 3975d550c6aad2c47b8cd2f68d8c736f, type: 3}
   smallerAstroidsToSpawn: 4
+  forceRange: 20
+  torqueRange: 0
 --- !u!54 &4305963851173230989
 Rigidbody:
   m_ObjectHideFlags: 0

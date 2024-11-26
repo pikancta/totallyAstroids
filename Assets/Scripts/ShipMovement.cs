@@ -10,10 +10,12 @@ public class ShipMovement : MonoBehaviour
     public float forwardInput;
     public GameObject Bullet;
 
+    public gameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.Find("GameManager").GetComponent<gameManager>();
     }
 
     // Update is called once per frame
