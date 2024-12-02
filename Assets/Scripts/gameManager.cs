@@ -56,8 +56,10 @@ public class gameManager : MonoBehaviour
     IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(1);
+
         GameObject[] Asteriods = GameObject.FindGameObjectsWithTag("Asteroid");
         bool canSpawn = false;
+
         while (!canSpawn)
         {
             canSpawn = true;
@@ -66,6 +68,7 @@ public class gameManager : MonoBehaviour
                 if ((Asteroid.transform.position - spawnPoint).magnitude < safetyRadius)
                 {
                     canSpawn = false;
+                    yield return new WaitForEndOfFrame();
                 }
             }
         }
@@ -73,9 +76,22 @@ public class gameManager : MonoBehaviour
         Instantiate(shipPrefab, spawnPoint, shipPrefab.transform.rotation);
     }
 
+    public void GameOver()
+    {
+        GameOverDisplay.SetActive(true);
+    }
+
     public void PlayerDie()
     {
         LoseLife();
-        StartCoroutine(RespawnPlayer());
+        if (lives < 0)
+        {
+            GameOver();
+        }
+        else
+        {
+          StartCoroutine(RespawnPlayer());
+        }
+        
     }
 }
